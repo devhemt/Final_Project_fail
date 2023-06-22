@@ -226,7 +226,7 @@ class Truecart extends Component
                 Cart::session($userId);
                 $this->total = Cart::getTotal();
                 if (Cart::isEmpty()){
-                    dd("mua hang di dm");
+                    dd("mua hang di");
                 }else{
                     $cartin = Cart::getContent()->toArray();
                     $flagcountcheck = false;

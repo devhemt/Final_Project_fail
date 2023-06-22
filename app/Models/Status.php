@@ -10,6 +10,6 @@ class Status extends Model
     use HasFactory;
 
     protected $table = 'status';
-    protected $primaryKey = 'status_id';
+    protected $primaryKey = 'id';
     protected $fillable = ['invoice_id','status'];
 }

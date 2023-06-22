@@ -14,7 +14,7 @@
         </div><!-- End Page Title -->
 
         <section class="section profile">
-            @livewire('profile')
+            @livewire('admin.profile.profile')
         </section>
 
     </main>

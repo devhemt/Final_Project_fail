@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('status', function (Blueprint $table) {
-            $table->increments('status_id');
+            $table->increments('id');
             $table->integer('invoice_id')->unsigned();
             $table->tinyInteger('status');
             $table->timestamps();
             $table->foreign('invoice_id')
-                  ->references('invoice_id')->on('invoice')
+                  ->references('id')->on('invoice')
                   ->onDelete('cascade');
         });
     }

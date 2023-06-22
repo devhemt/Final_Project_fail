@@ -13,7 +13,7 @@
         </div><!-- End Page Title -->
 
         <section class="section">
-            @livewire('prd',['idprd'=>$id])
+            @livewire('admin.product.prd',['idprd'=>$id])
         </section>
 
     </main>

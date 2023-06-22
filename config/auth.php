@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'user',
-        'passwords' => 'user',
+        'guard' => 'admin_account',
+        'passwords' => 'admin_account',
     ],
 
     /*
@@ -40,9 +40,9 @@ return [
             'driver' => 'session',
             'provider' => 'customer',
         ],
-        'user' => [
+        'admin_account' => [
             'driver' => 'session',
-            'provider' => 'user',
+            'provider' => 'admin_account',
         ],
     ],
 
@@ -69,9 +69,9 @@ return [
             'model' => App\Models\Customer::class,
         ],
 
-        'user' => [
+        'admin_account' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Admin_account::class,
         ],
     ],
 

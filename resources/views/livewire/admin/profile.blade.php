@@ -4,8 +4,8 @@
         <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-                <img src="{{asset('imagesadmin/images/'.$profile[0]->image)}}" alt="Profile" class="rounded-circle">
-                <h2>{{$profile[0]->name}}</h2>
+                <img src="{{asset('imagesadmin/images/'.$profile->image)}}" alt="Profile" class="rounded-circle">
+                <h2>{{$profile->name}}</h2>
                 <h3>{{$job}}</h3>
             </div>
         </div>
@@ -40,7 +40,7 @@
 
                         <div class="row">
                             <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                            <div class="col-lg-9 col-md-8">{{$profile[0]->name}}</div>
+                            <div class="col-lg-9 col-md-8">{{$profile->name}}</div>
                         </div>
 
                         <div class="row">
@@ -50,12 +50,12 @@
 
                         <div class="row">
                             <div class="col-lg-3 col-md-4 label">Phone</div>
-                            <div class="col-lg-9 col-md-8">{{$profile[0]->phone}}</div>
+                            <div class="col-lg-9 col-md-8">{{$profile->phone}}</div>
                         </div>
 
                         <div class="row">
                             <div class="col-lg-3 col-md-4 label">Email</div>
-                            <div class="col-lg-9 col-md-8">{{$profile[0]->email}}</div>
+                            <div class="col-lg-9 col-md-8">{{$profile->email}}</div>
                         </div>
 
                     </div>
@@ -65,7 +65,7 @@
                                 <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                                 <div class="col-md-8 col-lg-9">
                                     <div id="view-image" wire:ignore>
-                                    <img src="{{asset('imagesadmin/images/'.$profile[0]->image)}}" alt="Profile">
+                                    <img src="{{asset('imagesadmin/images/'.$profile->image)}}" alt="Profile">
                                         @error('photo') <span class="error">{{ $message }}</span> @enderror
                                     </div>
                                     <div class="pt-2">
@@ -78,7 +78,7 @@
                             <div class="row mb-3">
                                 <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
                                 <div class="col-md-8 col-lg-9">
-                                    <input wire:model="fullname" type="text" class="form-control" id="fullName">
+                                    <input wire:model="fullname" type="text" class="form-control" id="fullName" placeholder="{{$profile->name}}">
                                     @error('fullname') <span class="error">{{ $message }}</span> @enderror
                                 </div>
                             </div>
@@ -86,7 +86,7 @@
                             <div class="row mb-3">
                                 <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
                                 <div class="col-md-8 col-lg-9">
-                                    <input wire:model="phone" type="text" class="form-control" id="Phone">
+                                    <input wire:model="phone" type="text" class="form-control" id="Phone" placeholder="{{$profile->phone}}">
                                     @error('phone') <span class="error">{{ $message }}</span> @enderror
                                 </div>
                             </div>
@@ -94,7 +94,7 @@
                             <div class="row mb-3">
                                 <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                                 <div class="col-md-8 col-lg-9">
-                                    <input wire:model="email" type="email" class="form-control" id="Email">
+                                    <input wire:model="email" type="email" class="form-control" id="Email" placeholder="{{$profile->email}}">
                                     @error('email') <span class="error">{{ $message }}</span> @enderror
                                 </div>
                             </div>

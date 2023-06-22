@@ -14,19 +14,24 @@ return new class extends Migration
     public function up()
     {
         Schema::create('invoice', function (Blueprint $table) {
-            $table->increments('invoice_id');
-            $table->integer('cusid')->unsigned();
-            $table->integer('staff')->unsigned()->nullable();
-            $table->float('pay');
-            $table->string('see',50)->nullable();
+            $table->increments('id');
+            $table->integer('customer_id')->unsigned()->nullable(true);
+            $table->integer('guest_id')->unsigned()->nullable(true);
+            $table->integer('address_id')->unsigned();
+            $table->float('pay')->comment("tiền khách phải trả");
+            $table->float('true_pay')->comment("giá trị thực của đơn hàng");
+            $table->string('see',50)->nullable()->comment("cột này chắc là đang xem");
             $table->string('payment',50);
             $table->string('delivery',50);
             $table->timestamps();
-            $table->foreign('cusid')
-                  ->references('cus_id')->on('customer')
+            $table->foreign('customer_id')
+                  ->references('id')->on('customer')
                   ->onDelete('cascade');
-            $table->foreign('staff')
-                ->references('user_id')->on('user')
+            $table->foreign('guest_id')
+                ->references('id')->on('guest')
+                ->onDelete('cascade');
+            $table->foreign('address_id')
+                ->references('id')->on('address')
                 ->onDelete('cascade');
         });
     }

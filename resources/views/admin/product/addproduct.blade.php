@@ -16,12 +16,12 @@
             <div class="row addpd">
               <div class="col-lg-6">
 
-                <form accept-charset="utf-8" action="{{ url("admin/product") }}" role="form" method="POST" enctype="multipart/form-data">
+                <form accept-charset="utf-8" action="{{ url("admin/purchase/saveproduct") }}" role="form" method="POST" enctype="multipart/form-data">
                     {{ method_field('POST') }}
                     @csrf
                   <div class="form-group">
                       <label>Product's Name</label>
-                      <input required name="prd_name" class="form-control" placeholder="">
+                      <input required name="prd_name" class="form-control" >
                     @if ($errors->has('prd_name'))
                         <p class="text-danger">
                         @foreach ($errors->get('prd_name') as $e)
@@ -30,6 +30,7 @@
                         </p>
                     @endif
                   </div>
+                    <input required name="purchase_id" class="form-control" value="{{$purchase_id}}" hidden>
                   <div class="form-group">
                       <label>Cost price</label>
                       <input required name="prd_cost_price" type="number" min="0" class="form-control">
@@ -53,14 +54,11 @@
                     @endif
                 </div>
                   <div class="form-group">
-                    <label>Danh mục</label>
+                    <label>Category</label>
                     <select name="prd_category" class="form-control">
-                        {{-- categories(1=men,2=women,3=kid,4=accessories) --}}
-                        <option value="0">-- Lựa chọn --</option>
-                        <option value="1">-- Men --</option>
-                        <option value="2">-- Women --</option>
-                        <option value="3">-- Kid --</option>
-                        <option value="4">-- Accessories --</option>
+                        @foreach($categories as $c)
+                            <option value="{{$c->id}}">-- {{$c->category_name}} --</option>
+                        @endforeach
                     </select>
                     @if ($errors->has('prd_category'))
                         <p class="text-danger">
@@ -87,39 +85,6 @@
                         @if ($errors->has('prd_brand'))
                             <p class="text-danger">
                                 @foreach ($errors->get('prd_brand') as $e)
-                                    {{ $e }}
-                                @endforeach
-                            </p>
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label>Provided name</label>
-                        <input required name="provided_name" type="text" class="form-control">
-                        @if ($errors->has('provided_name'))
-                            <p class="text-danger">
-                                @foreach ($errors->get('provided_name') as $e)
-                                    {{ $e }}
-                                @endforeach
-                            </p>
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label>Provided phone</label>
-                        <input required name="provided_phone" type="tel" class="form-control">
-                        @if ($errors->has('provided_phone'))
-                            <p class="text-danger">
-                                @foreach ($errors->get('provided_phone') as $e)
-                                    {{ $e }}
-                                @endforeach
-                            </p>
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label>Provided address</label>
-                        <input required name="provided_address" type="text" class="form-control">
-                        @if ($errors->has('provided_address'))
-                            <p class="text-danger">
-                                @foreach ($errors->get('provided_address') as $e)
                                     {{ $e }}
                                 @endforeach
                             </p>

@@ -64,13 +64,14 @@ class Index2 extends Component
         $this->allprd = array_keys($this->sold);
         $this->size = sizeof([$this->allprd]);
 
+
         $this->products = DB::table('items')
             ->join('category', 'items.prd_id','=', 'category.prdid')
             ->select('items.*','category.categories')
-            ->Where('prd_id','=',$this->allprd[0])
-            ->orWhere('prd_id','=',$this->allprd[1])
-            ->orWhere('prd_id','=',$this->allprd[2])
-            ->orWhere('prd_id','=',$this->allprd[3])
+//            ->Where('prd_id','=',$this->allprd[0])
+//            ->orWhere('prd_id','=',$this->allprd[1])
+//            ->orWhere('prd_id','=',$this->allprd[2])
+//            ->orWhere('prd_id','=',$this->allprd[3])
             ->get();
         return view('livewire.client.index2');
     }

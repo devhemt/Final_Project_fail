@@ -10,6 +10,6 @@ class Images extends Model
     use HasFactory;
 
     protected $table = 'images';
-    protected $primaryKey = 'images_id';
-    protected $fillable = ['itemsid','url'];
+    protected $primaryKey = 'id';
+    protected $fillable = ['prd_id','url'];
 }

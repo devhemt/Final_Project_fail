@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('sale', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('itemsid')->unsigned();
+            $table->integer('prd_id')->unsigned();
             $table->tinyInteger('sale');
             $table->timestamp('begin')->nullable();
             $table->timestamp('end')->nullable();
             $table->timestamps();
-            $table->foreign('itemsid')
-                ->references('prd_id')->on('items')
+            $table->foreign('prd_id')
+                ->references('id')->on('product')
                 ->onDelete('cascade');
         });
     }

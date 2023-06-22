@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('total_property', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('itemsid')->unsigned();
+            $table->integer('prd_id')->unsigned();
             $table->string('sizes');
             $table->string('colors');
             $table->timestamps();
-            $table->foreign('itemsid')
-                  ->references('prd_id')->on('items')
+            $table->foreign('prd_id')
+                  ->references('id')->on('product')
                   ->onDelete('cascade');
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nature1');
+        Schema::dropIfExists('total_property');
     }
 };

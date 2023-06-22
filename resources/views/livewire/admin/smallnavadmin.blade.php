@@ -72,13 +72,13 @@
     <li class="nav-item dropdown pe-3">
 
         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="{{asset('imagesadmin/images/'.$profile[0]->image)}}" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">{{$profile[0]->name}}</span>
+            <img src="{{asset('imagesadmin/images/'.$profile->image)}}" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">{{$profile->name}}</span>
         </a><!-- End Profile Iamge Icon -->
 
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-                <h6>{{$profile[0]->name}}</h6>
+                <h6>{{$profile->name}}</h6>
                 <span>{{$job}}</span>
             </li>
             <li>

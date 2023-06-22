@@ -13,11 +13,12 @@
         </div><!-- End Page Title -->
 
         <section class="section">
-            @livewire('editprd',['idprd'=>$id])
+            @livewire('admin.product.editprd',['idprd'=>$id])
 
 
         </section>
         <script language="JavaScript" type="text/javascript">
+            var flag = true;
             var flagname = 1;
             var flagimage = false;
             function preview() {
@@ -53,6 +54,10 @@
 
             }
             function appendColumn(){
+                if (flag){
+                    deleteColumns();
+                    flag = false;
+                }
                 var tbl=document.getElementById('my-table');
                 var tbl1=document.getElementById('my-table-1');
                 var tbl2=document.getElementById('my-table-2');

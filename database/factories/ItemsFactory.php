@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Items>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Product>
  */
 class ItemsFactory extends Factory
 {
@@ -15,7 +15,7 @@ class ItemsFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    protected $models = \App\Models\Items::class;
+    protected $models = \App\Models\Product::class;
     public function definition()
     {
         return [

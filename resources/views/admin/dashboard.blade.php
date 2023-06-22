@@ -20,24 +20,24 @@
           <div class="row">
 
             <!-- Sales Card -->
-              @livewire('salescard')
+{{--              @livewire('salescard')--}}
             <!-- End Sales Card -->
 {{--              import money--}}
-              @livewire('importmoney')
+{{--              @livewire('importmoney')--}}
             <!-- Revenue Card -->
 {{--              @livewire('revenuecard')--}}
             <!-- End Revenue Card -->
 
             <!-- Customers Card -->
-              @livewire('customerscard')
+{{--              @livewire('customerscard')--}}
             <!-- End Customers Card -->
 
             <!-- Reports -->
-              @livewire('reports')
+{{--              @livewire('reports')--}}
             <!-- End Reports -->
 
             <!-- Top Selling -->
-              @livewire('topselling')
+{{--              @livewire('topselling')--}}
             <!-- End Top Selling -->
 
           </div>

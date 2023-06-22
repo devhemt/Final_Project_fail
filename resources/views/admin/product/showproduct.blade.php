@@ -10,7 +10,6 @@
                 <li class="breadcrumb-item active">Show products</li>
               </ol>
             </nav>
-            @livewire('searchadmin',['currentURL' => $currentURL])
         </div><!-- End Page Title -->
 
         <section class="section">
@@ -19,7 +18,7 @@
               <div class="col-lg-12">
 
                 <div class="card">
-                  @livewire('showproduct')
+                  @livewire('admin.product.showproduct')
                 </div>
 
               </div>

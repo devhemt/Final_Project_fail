@@ -22,37 +22,52 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('admin.login');
 });
-Route::get('/signout', [\App\Http\Controllers\ProfileController::class,'signOut']);
 
-Route::match(['get', 'post'], '/login', [\App\Http\Controllers\ProfileController::class, 'login']);
+Route::get('/category/show',[\App\Http\Controllers\Admin\Category\CategoryController::class,'show']);
+Route::get('/supplier/show',[\App\Http\Controllers\Admin\Supplier\SupplierController::class,'show']);
+Route::get('/purchase/show',[\App\Http\Controllers\Admin\Purchase\PurchaseController::class,'show']);
+Route::get('/purchase/{id}',[\App\Http\Controllers\Admin\Purchase\PurchaseController::class, 'purchaseDetail']);
+Route::get('/purchase/addnewproduct/{id}',[\App\Http\Controllers\Admin\Purchase\PurchaseController::class, 'addNewProduct']);
+Route::post('/purchase/saveproduct',[\App\Http\Controllers\Admin\Purchase\PurchaseController::class, 'store']);
+Route::get('/purchase/addnewproduct/{prd_id}/{purchase_id}',[\App\Http\Controllers\Admin\Purchase\PurchaseController::class, 'addOldProduct']);
+Route::post('/purchase/addold',[\App\Http\Controllers\Admin\Purchase\PurchaseController::class, 'addOld']);
 
-Route::get('/addbatch/{id}', [\App\Http\Controllers\ProductController::class,'batch']);
+Route::get('/signout', [\App\Http\Controllers\AdminAccountController::class,'signOut']);
 
-Route::get('/allorder', [\App\Http\Controllers\InvoiceController::class, 'index6'])->middleware('isdirector');
-Route::get('/canceledorder', [\App\Http\Controllers\InvoiceController::class, 'index0'])->middleware('isordermanager4');
-Route::get('/noprocessorder', [\App\Http\Controllers\InvoiceController::class, 'index1'])->middleware('isordermanager5');
-Route::get('/confirmedorder', [\App\Http\Controllers\InvoiceController::class, 'index2'])->middleware('isordermanager6');
-Route::get('/packingorder', [\App\Http\Controllers\InvoiceController::class, 'index3'])->middleware('isordermanager7');
-Route::get('/deliveryorder', [\App\Http\Controllers\InvoiceController::class, 'index4'])->middleware('isdeliverymanager');
-Route::get('/successfulorder', [\App\Http\Controllers\InvoiceController::class, 'index5'])->middleware('isordermanager8');
+Route::match(['get', 'post'], '/login', [\App\Http\Controllers\AdminAccountController::class, 'login']);
+
+Route::get('/product',[\App\Http\Controllers\Admin\Product\ProductController::class, 'index']);
+Route::get('/product/{id}',[\App\Http\Controllers\Admin\Product\ProductController::class,'show']);
+Route::get('/product/{product}/edit',[\App\Http\Controllers\Admin\Product\ProductController::class,'edit']);
+Route::post('/product/edit',[\App\Http\Controllers\Admin\Product\ProductController::class,'update']);
+
+//old route
+
+Route::get('/addbatch/{id}', [\App\Http\Controllers\Admin\Product\ProductController::class,'batch']);
+
+Route::get('/allorder', [\App\Http\Controllers\InvoiceController::class, 'index6']);
+Route::get('/canceledorder', [\App\Http\Controllers\InvoiceController::class, 'index0']);
+Route::get('/noprocessorder', [\App\Http\Controllers\InvoiceController::class, 'index1']);
+Route::get('/confirmedorder', [\App\Http\Controllers\InvoiceController::class, 'index2']);
+Route::get('/packingorder', [\App\Http\Controllers\InvoiceController::class, 'index3']);
+Route::get('/deliveryorder', [\App\Http\Controllers\InvoiceController::class, 'index4']);
+Route::get('/successfulorder', [\App\Http\Controllers\InvoiceController::class, 'index5']);
 Route::get('/order/{id}/{type}', [\App\Http\Controllers\InvoiceController::class, 'show']);
 
 
 Route::post('/invoice',[\App\Http\Controllers\InvoiceController::class, 'store']);
 
 
-Route::get('/product',[\App\Http\Controllers\ProductController::class, 'index'])->middleware('isimportmanager');
-Route::post('/product',[\App\Http\Controllers\ProductController::class, 'store'])->middleware('isimportmanager');
-Route::get('product/create',[\App\Http\Controllers\ProductController::class,'create'])->middleware('isimportmanager');
-Route::get('/product/{product}/edit',[\App\Http\Controllers\ProductController::class,'edit'])->middleware('isimportmanager');
-Route::post('/product/edit',[\App\Http\Controllers\ProductController::class,'editInside'])->middleware('isimportmanager');
-Route::post('/product/addbatch',[\App\Http\Controllers\ProductController::class,'batchinside'])->middleware('isimportmanager');
-Route::get('/product/{id}',[\App\Http\Controllers\ProductController::class,'show'])->middleware('isimportmanager');
+
+Route::post('/product',[\App\Http\Controllers\Admin\Product\ProductController::class, 'store']);
+Route::get('product/create',[\App\Http\Controllers\Admin\Product\ProductController::class,'create']);
+Route::post('/product/addbatch',[\App\Http\Controllers\Admin\Product\ProductController::class,'batchinside']);
 
 
-Route::get('/profile',[\App\Http\Controllers\ProfileController::class,'index']);
-Route::post('/profile',[\App\Http\Controllers\ProfileController::class,'store']);
-Route::get('/profile/create',[\App\Http\Controllers\ProfileController::class,'create'])->middleware('isdirector');
-Route::get('/profile/showall',[\App\Http\Controllers\ProfileController::class,'showall'])->middleware('isdirector');
+
+Route::get('/profile',[\App\Http\Controllers\AdminAccountController::class,'index']);
+Route::post('/profile',[\App\Http\Controllers\AdminAccountController::class,'store']);
+Route::get('/profile/create',[\App\Http\Controllers\AdminAccountController::class,'create']);
+Route::get('/profile/showall',[\App\Http\Controllers\AdminAccountController::class,'showall']);
 
 

@@ -50,7 +50,7 @@
 
 
     <nav class="header-nav ms-auto">
-      @livewire('smallnavadmin')
+      @livewire('admin.profile.smallnavadmin')
     </nav><!-- End Icons Navigation -->
 
   </header><!-- End Header -->
@@ -67,6 +67,43 @@
         </a>
       </li><!-- End Dashboard Nav -->
 
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#category-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Category</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="category-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{ url('admin/category/show') }}">
+                        <i class="bi bi-circle"></i><span>Show categories</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#supplier-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Supplier</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="supplier-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{ url('admin/supplier/show') }}">
+                        <i class="bi bi-circle"></i><span>Show supplier</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#purchase-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Purchase</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="purchase-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{ url('admin/purchase/show') }}">
+                        <i class="bi bi-circle"></i><span>Show purchase</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Products</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -75,11 +112,6 @@
           <li>
             <a href="{{ url('admin/product') }}">
               <i class="bi bi-circle"></i><span>Show products</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{ url('admin/product/create') }}">
-              <i class="bi bi-circle"></i><span>Add product</span>
             </a>
           </li>
         </ul>

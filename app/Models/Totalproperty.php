@@ -11,5 +11,5 @@ class Totalproperty extends Model
 
     protected $table = 'total_property';
     protected $primaryKey = 'id';
-    protected $fillable = ['itemsid','sizes','colors'];
+    protected $fillable = ['prd_id','sizes','colors'];
 }
